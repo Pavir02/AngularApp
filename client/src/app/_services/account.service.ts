@@ -40,20 +40,20 @@ export class AccountService {
     }
 
 
-register(model:any)
-{
-  return this.http.post(this.baseUrl + "account/register", model).pipe(
-    map( (user:User) => 
+    register(model:any)
     {
-      if(user)
-      {
-        localStorage.setItem("user", JSON.stringify(user));
-        this.currentUserSource.next(user);
-      }
-      // return user;
-    })
-  );
-}
+      return this.http.post(this.baseUrl + "account/register", model).pipe(
+        map( (user:User) => 
+        {
+          if(user)
+          {
+            localStorage.setItem("user", JSON.stringify(user));
+            this.currentUserSource.next(user);
+          }
+          // return user;
+        })
+      );
+    }
 
 
  //Observables: Step 5: Assign the user we get from API to the custom obervable created in a method
